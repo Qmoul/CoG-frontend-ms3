@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
-import { Form, Button, Alert } from 'react-bootstrap';
-import { Link, Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import propTypes from 'prop-types';
-import { login } from '../actors/auth';
+import React, { useState } from "react";
+import { Form, Button, Alert } from "react-bootstrap";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import propTypes from "prop-types";
+import { login } from "../actors/auth";
 
 export const Login = ({ login, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
 
   const { email, password } = formData;
@@ -22,7 +22,7 @@ export const Login = ({ login, isAuthenticated }) => {
   };
   //Redirect if logged in
   if (isAuthenticated) {
-    return <Redirect to="/parties" />;
+    return <Redirect to="/dashboard" />;
   }
   return (
     <>

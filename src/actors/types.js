@@ -7,3 +7,7 @@ export const AUTH_ERROR = 'AUTH_ERROR';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILED = 'LOGIN_FAILED';
 export const LOGOUT = 'LOGOUT';
+export const CREATE_PARTY = 'CREATE_PARTY';
+export const PARTY_ERROR = 'PARTY_ERROR';
+export const CREATE_REPORT = 'CREATE_REPORT';
+export const REPORT_ERROR = 'REPORT_ERROR';

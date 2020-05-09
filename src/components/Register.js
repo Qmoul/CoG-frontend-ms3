@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
-import { connect } from 'react-redux';
-import { Form, Button } from 'react-bootstrap';
-import { setAlert } from '../actors/alert';
-import { register } from '../actors/auth';
-import propTypes from 'prop-types';
+import React, { useState } from "react";
+import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import { Form, Button } from "react-bootstrap";
+import { setAlert } from "../actors/alert";
+import { register } from "../actors/auth";
+import propTypes from "prop-types";
 
 const Register = ({ setAlert, register, isAuthenticated }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    password2: '',
+    name: "",
+    email: "",
+    password: "",
+    password2: "",
   });
 
   const { name, email, password, password2 } = formData;
@@ -21,15 +21,15 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     if (password !== password2) {
-      setAlert('Passwords do not match', 'danger');
+      setAlert("Passwords do not match", "danger");
     } else {
-      console.log('Success');
+      console.log("Success");
       register({ name, email, password });
     }
   };
 
   if (isAuthenticated) {
-    return <Redirect to="./parties" />;
+    return <Redirect to="./dashboard" />;
   }
   return (
     <>

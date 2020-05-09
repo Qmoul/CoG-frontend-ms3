@@ -5,7 +5,9 @@ import Landing from './components/Landing';
 import Login from './components/Login';
 import Register from './components/Register';
 import Alert from './components/Alert';
-import Parties from './components/Parties';
+import Dashboard from './components/Dashboard';
+import Addparty from './components/Addparty';
+import Report from './components/Report';
 import TokenR from './components/TokenR';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { loadUser } from './actors/auth';
@@ -39,7 +41,9 @@ const App = () => {
               <Switch>
                 <Route exact path="/register" component={Register} />
                 <Route exact path="/login" component={Login} />
-                <TokenR exact path="/parties" component={Parties} />
+                <TokenR exact path="/dashboard" component={Dashboard} />
+                <TokenR exact path="/addparty" component={Addparty} />
+                <TokenR exact path="/report" component={Report} />
               </Switch>
             </div>
           </div>

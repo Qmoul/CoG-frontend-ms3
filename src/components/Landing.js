@@ -1,10 +1,15 @@
-import React from 'react';
-import Button from 'react-bootstrap/Button';
-import Center from 'react-center';
-import { Link } from 'react-router-dom';
+import React from "react";
+import Button from "react-bootstrap/Button";
+import Center from "react-center";
+import { Link, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
 
+const Landing = ({ isAuthenticated }) => {
+  if (isAuthenticated) {
+    return <Redirect to="/dashboard" />;
+  }
 
-const Landing = () => {
   return (
     <div>
       <Center>
@@ -17,7 +22,7 @@ const Landing = () => {
         <div>
           <Link to="/register">
             <Button variant="outline-primary">Sign up</Button>
-          </Link>{' '}
+          </Link>{" "}
           <Link to="/login">
             <Button variant="success">Login</Button>
           </Link>
@@ -27,4 +32,11 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+Landing.propTypes = {
+  isAuthenticated: PropTypes.bool,
+};
+const mapStateToProps = (state) => ({
+  isAuthenticated: state.auth.isAuthenticated,
+});
+
+export default connect(mapStateToProps)(Landing);
