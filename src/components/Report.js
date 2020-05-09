@@ -42,7 +42,6 @@ const Report = ({ createReport, history }) => {
             <option value="gokart">Gokart</option>
             <option value="tennis">Tennis</option>
             <option value="biking">Biking</option>
-
             <option value="dancing">Dancing</option>
             <option value="workout">Workout</option>
           </Form.Control>

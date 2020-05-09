@@ -1,19 +1,18 @@
-import React, { Fragment } from "react";
-import { Navbar, Nav } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { connect } from "react-redux";
-import propTypes from "prop-types";
-import { logout } from "../actors/auth";
+import React, { Fragment } from 'react';
+import { Navbar, Nav } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import propTypes from 'prop-types';
+import { logout } from '../actors/auth';
+import { initialize } from '../actors/initialize';
+import Button from 'react-bootstrap/Button';
 
 const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <>
       <Nav>
-        <Link to="/addparty" style={{ marginRight: 20, color: "#63f542" }}>
+        <Link to="/addparty" style={{ marginRight: 20, color: '#63f542' }}>
           Add Party
-        </Link>
-        <Link to="/initialize" style={{ marginRight: 20, color: "red" }}>
-          DBFilling
         </Link>
         <Link to="/" onClick={logout} style={{ marginRight: 10 }}>
           Logout
@@ -25,10 +24,20 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <>
       <Nav>
+        <div id="toHide">
+          <Button
+            variant="danger"
+            onClick={initialize}
+            to="/"
+            style={{ marginRight: 20 }}
+          >
+            DBFilling - CLICK ONLY ONCE
+          </Button>
+        </div>
         <Link to="/register" style={{ marginRight: 20 }}>
           Register
         </Link>
-        {"  "}
+        {'  '}
         <Link to="/login" style={{ marginRight: 10 }}>
           Login
         </Link>
