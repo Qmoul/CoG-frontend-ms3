@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { logout } from '../actors/auth';
 import { initialize } from '../actors/initialize';
+import { migrate } from '../actors/migrate';
 import Button from 'react-bootstrap/Button';
 
 const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
@@ -32,6 +33,16 @@ const Navigation = ({ auth: { isAuthenticated, loading }, logout }) => {
             style={{ marginRight: 20 }}
           >
             DBFilling - CLICK ONLY ONCE
+          </Button>
+        </div>
+        <div id="toHide">
+          <Button
+            variant="danger"
+            onClick={migrate}
+            to="/"
+            style={{ marginRight: 20 }}
+          >
+            SQL - MONGO
           </Button>
         </div>
         <Link to="/register" style={{ marginRight: 20 }}>

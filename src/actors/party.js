@@ -49,7 +49,11 @@ export const createReport = (formData, history) => async (dispatch) => {
       },
     };
 
-    const res = await axios.post('/restapi/parties/report', formData, config);
+    const res = await axios.post(
+      '/restapi/parties/reportmongo',
+      formData,
+      config
+    );
 
     dispatch({
       type: CREATE_REPORT,
