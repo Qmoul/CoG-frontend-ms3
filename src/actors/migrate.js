@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 export const migrate = async () => {
-  const config = {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  };
+  await axios.all([
+    axios.post('/restapi/activity/migrate'),
+    axios.post('/restapi/parties/migrate'),
+    axios.post('/restapi/users/migrate'),
+  ]);
 };
